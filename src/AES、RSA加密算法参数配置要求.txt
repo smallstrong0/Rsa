@@ -1,0 +1,32 @@
+/**
+ * 加密算法参数配置要求说明文档
+ * 包含AES和RSA两种加密算法的参数配置要求
+ */
+
+（1）AES加密算法参数配置要求
+
+Java代码配置示例：
+
+import javax.crypto.Cipher;
+
+     Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+
+-- 算法：AES（对称加密算法）。
+-- 模式：ECB（电子密码本模式）。
+-- 填充方式：PKCS5Padding（补零填充，实际实现可为 PKCS#7，兼容）。
+-- 字符串编码方式必须为Base64
+
+（2）RSA加密算法参数要求
+
+Java代码配置示例：
+
+import javax.crypto.Cipher;
+
+Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");//基于 OAEP 的填充，使用 SHA-256 和 MGF1 掩码生成函数
+
+-- 算法：RSA（非对称加密算法）。
+-- 模式：ECB（电子密码本模式）。
+-- 填充方式：OAEPWithSHA-256AndMGF1Padding。
+-- 字符串编码方式必须为Base64
+
+		
